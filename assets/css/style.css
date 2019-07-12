@@ -31,3 +31,8 @@ h2 {
 h3 {
     font-size: 1.17em;
 }
+span {
+    color: white;
+    font-family: 'Permanent Marker', cursive;
+    line-height: 30px;
+}

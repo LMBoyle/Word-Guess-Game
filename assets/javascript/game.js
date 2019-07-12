@@ -10,9 +10,21 @@ var gymTerms = [
     "Bench Press",
 ]
 
+var lettersGuessed = []
+
 // Choose a word and show blanks based on number of letters in word/phrase
 
 // Wait for key press
+    var userText = document.getElementById("alreadyGuessed");
+    
+    document.onkeyup = function(event) {
+        // Determines which key was pressed.
+        var userGuess = event.key;
+        lettersGuessed.push(userGuess);
+        var x = lettersGuessed.toString();
+        var y = lettersGuessed.join(" ");
+            document.getElementById("alreadyGuessed" + "").innerHTML = y;
+    }
 
 // Change all to uppercase
 
