@@ -1,6 +1,14 @@
 // Press a key to start the game
 
 // List of words
+var gymTerms = [
+    "Barbell",
+    "Dumbbell",
+    "Kettlebell",
+    "Squat",
+    "Deadlift",
+    "Bench Press",
+]
 
 // Choose a word and show blanks based on number of letters in word/phrase
 
