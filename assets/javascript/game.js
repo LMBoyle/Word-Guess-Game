@@ -2,18 +2,26 @@
 
 // List of words
 var gymTerms = [
-    "Barbell",
-    "Dumbbell",
-    "Kettlebell",
-    "Squat",
-    "Deadlift",
-    "Bench Press",
+    "barbell",
+    "dumbbell",
+    "kettlebell",
+    "squat",
+    "deadlift",
+    "bench press",
 ]
 
-var lettersGuessed = []
+
+
+
 
 // Choose a word and show blanks based on number of letters in word/phrase
-
+var wordToGuess = gymTerms[Math.floor(Math.random() * gymTerms.length)];
+var blanks = [];
+    for (var i = 0; i < wordToGuess.length; i++) {
+        blanks[i] = "_";
+    }
+console.log(wordToGuess);
+var remainingLetters = wordToGuess.length;
 // Wait for key press
     var userText = document.getElementById("alreadyGuessed");
     
@@ -31,7 +39,7 @@ var lettersGuessed = []
 // If letter appears in word/phrase, show in place of blank
 
 // If letter isn't in word/phrase, show under "letters used" and decrease "guesses" remaining
-
+var lettersGuessed = []
 // After 5 wrong guesses, reset to new word and increase "losses" by one
 
 // If word is correctly guess, reset to new word and increase "wins" by one
