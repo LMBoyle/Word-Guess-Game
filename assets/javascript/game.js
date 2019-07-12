@@ -1,8 +1,12 @@
 // Press a key to start the game
 
+// List of words
+
 // Choose a word and show blanks based on number of letters in word/phrase
 
 // Wait for key press
+
+// Change all to uppercase
 
 // If letter appears in word/phrase, show in place of blank
 
