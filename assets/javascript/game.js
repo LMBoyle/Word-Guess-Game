@@ -1,4 +1,4 @@
-// Press a key to start the game
+// TODO Press a key to start the game
 
 // List of words
 var gymTerms = [
@@ -18,10 +18,10 @@ var losses = 0;
 
 // Variables that hold references to the places in the HTML where we want to display things
   var wordBlank = document.getElementById("currentWord" + "");
-  var guessesNumber = document.getElementById("guessesRemain");
+  var guessesNum = document.getElementById("guessesRemain");
   var guessesText = document.getElementById("alreadyGuessed" + "");
-  var winText = document.getElementById("wins");
-  var lossText = document.getElementById("losses");
+  var winNum = document.getElementById("wins");
+  var lossNum = document.getElementById("losses");
 
 // Choose a word from array
   var wordToGuess = gymTerms[Math.floor(Math.random() * gymTerms.length)];
@@ -51,16 +51,25 @@ var losses = 0;
     var userGuess = event.key;
     lettersGuessed.push(" " + userGuess);
     
-    // If letter appears in word/phrase, show in place of blank
+    // TODO If letter appears in word/phrase, show in place of blank
 
     // If letter isn't in word/phrase, show under "letters used" and decrease "guesses" remaining
-      // Show keys under Already Guessed
+      // Show letters under Already Guessed
       guessesText.textContent = lettersGuessed.join(" ");
       // Decrease Remaining Guesses
+        // Show number of guessing remaining
+        // TODO Show number before pressing anything
+        guessesNum.textContent = remainingGuesses;
 
-    // After 5 wrong guesses, reset to new word and increase "losses" by one
+    // TODO After 5 wrong guesses, reset to new word and increase "losses" by one
+      // Show number of losses
+        // TODO Show number before pressing anything
+        lossNum.textContent = losses;
 
-    // If word is correctly guessed, reset to new word and increase "wins" by one
+    // TODO If word is correctly guessed, reset to new word and increase "wins" by one
+      // Show number of wins
+        // TODO Show number before pressing anything
+        winNum.textContent = wins;
 
     // Display letters already guessed, wins, and losses
   }
@@ -106,4 +115,3 @@ document.onkeyup = function (event) {
 
 
 
-  
