@@ -132,7 +132,7 @@ function guessComplete() {
   else if (remainingGuesses == 0) {
     loseSound.play()
     totalLosses++;
-    alert("You lost. Click OK to try again!");
+    alert("You lost. The word was " + wordToGuess + ". Click OK to try again!");
     lossNum.innerHTML = totalLosses;
     startGame();
   }
