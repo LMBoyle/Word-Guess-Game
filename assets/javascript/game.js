@@ -117,6 +117,13 @@ function checkLetter(letter) {
 }
 
 function guessComplete() {
+  // Update HTML after each guess:
+  // Update blanks
+  wordBlank.innerHTML = blanks.join(" ");
+  // Update letters guessed
+  guessesText.innerHTML = lettersGuessed.join(" ");
+  // Update remaining guesses
+  guessesNum.innerHTML = remainingGuesses;
   // Check if user has completely guessed the word
   if (letters.toString() == blanks.toString()) {
     totalWins++;
