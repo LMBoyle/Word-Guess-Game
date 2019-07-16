@@ -22,84 +22,78 @@ var $ = function (id) {
   "bench press",
 ]
 
-// Choose a random number
+
   // ! selectedWord
-  var arrayIndex = Math.floor(Math.random() * gymTerms.length);
-    console.log("arrayIndex ", arrayIndex);
+  var wordToGuess = "";
 
-// Word from array based on number
-  var wordToGuess = gymTerms[arrayIndex];
-    console.log('wordToGuess:', wordToGuess);
-
-// Length of the word choosen
-  // ! numBlanks
-  var wordLength = wordToGuess.length;
-    console.log('wordLength:', wordLength);
-  // ! blanksAndSuccesses...?
-  var display=[wordLength];
-    console.log('display:', display)
-
-  var guessedCorrect = wordLength;
-    console.log('win:', guessedCorrect);
-
-// Create an array of the word to guess
   // ! lettersInWord
-  var letters = wordToGuess.split('');
-    console.log('letters:', letters);
+  var letters = [];
+
+  // ! numBlanks
+  var wordLength = 0;
+
+// Blanks & Letters correctly guessed array
+  // ! blanksAndSuccesses
+  var blanks=[];
+
+// Wrong letters guessed array 
+  // ! wrongLetters
+  var lettersGuessed = [];
 
 // Starting Values
-  // ! guessesLeft
-  var remainingGuesses = 8;
   // ! winCounts
   var totalWins = 0;
   // ! lossCount
   var totalLosses = 0;
-
-// Letters Already Guessed Array 
-  // ! wrongLetters
-  var lettersGuessed = [];
-
-  var output = "";
-  var userLetter="";
-
+  // ! guessesLeft
+  var remainingGuesses = 8;
 
 // FUNCTIONS
 // ==========================================================================
 // Starting Game By...    
 var startGame = function(){
+  // Choose a random number and populte word from array based on number
+  wordToGuess = gymTerms[Math.floor(Math.random() * gymTerms.length)];
+    console.log('wordToGuess:', wordToGuess);
+  // Create an array of the word to guess
+  letters = wordToGuess.split('');
+    console.log('letters:', letters);
+  // Length of the word choosen
+  wordLength = letters.length;
+    console.log('wordLength:', wordLength);
+  
+  // reset:
+
+  // remaining guesses to 8, ...
+  remainingGuesses = 8;
+  // letters guessed to nothing, ...
+  lettersGuessed = [];
+  // and blanks/succesful guesses to nothing
+  blanks=[]
+
   // Displaying Blanks for Word, ...
-  for (var i = 0; i < wordToGuess.length; i++) {
-  display[i] = "_ ";
-    console.log('display blanks:', display)
-  output = output + display[i];
-    console.log('output:', output)
+  for (var i = 0; i < wordLength; i++) {
+    blanks.push("_ ");
   }
 
-  wordBlank.innerHTML = output;
-  output = "";
+  // Display blanks, ...
+  wordBlank.innerHTML = blanks.join(" ");
 
   // show number of losses, ...
   lossNum.innerHTML = totalLosses;
 
-  // Show number of wins, and ...
+  // show number of wins, and ...
   winNum.innerHTML = totalWins;
 
-  // reset:
-
-  // remaining guesses to 8
-  remainingGuesses = 8;
-    // Show number of guessing remaining
-    guessesNum.innerHTML = remainingGuesses;
-  // and letters guessed to nothing
-  lettersGuessed = [];
+  // Show number of guessing remaining
+  guessesNum.innerHTML = remainingGuesses;
 }
 
-
+/*
 // After player presses a key...  
 function checkLetter(letter) {
   // go through selected word to see if letter is part of word...
   var letterInWord = false;
-
 
   for (var j=0; j<wordLength; j++) {
     if (wordToGuess[j] == letter) {
@@ -117,9 +111,19 @@ function checkLetter(letter) {
   }
   else {
     lettersGuessed.push(letter);
-    console.log('lettersGuessed:', lettersGuessed)
     remainingGuesses--;
-    console.log('remainingGuesses:', remainingGuesses)
+    
+  }
+}
+
+function guessComplete() {
+  // Check if user has completely guessed the word
+  if (letters.toString() == display.toString()) {
+    winNum++;
+    alert("you won");
+    winNum.innerHTML = totalWins;
+    startGame();
+
   }
 }
 
@@ -171,6 +175,7 @@ document.addEventListener("DOMContentLoaded", function(){
     userLetter = event.key.toLowerCase();
       console.log('userLetter:', userLetter);
     checkLetter(userLetter);
+    guessComplete();
     //event.key="";
   }
 
