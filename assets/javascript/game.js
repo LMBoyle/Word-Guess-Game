@@ -1,7 +1,3 @@
-var $ = function (id) {
-  return document.getElementById(id);
-}
-
 // VARIABLES
 // ============================================================================================
 // Variables that hold references to the places in the HTML where we want to display things
@@ -12,7 +8,6 @@ var $ = function (id) {
   var lossNum = document.getElementById("losses");
 
 // List of words
-// ! wordOptions
   var gymTerms = [
   "barbell",
   "dumbbell",
@@ -22,32 +17,32 @@ var $ = function (id) {
   "bench press",
 ]
 
-
-  // ! selectedWord
   var wordToGuess = "";
 
-  // ! lettersInWord
   var letters = [];
 
-  // ! numBlanks
   var wordLength = 0;
 
 // Blanks & Letters correctly guessed array
-  // ! blanksAndSuccesses
   var blanks=[];
 
 // Wrong letters guessed array 
-  // ! wrongLetters
   var lettersGuessed = [];
 
 // Starting Values
-  // ! winCounts
   var totalWins = 0;
-  // ! lossCount
   var totalLosses = 0;
-  // ! guessesLeft
   var remainingGuesses = 8;
 
+// Sound variables
+  var correctSound = document.createElement("audio");
+  correctSound.setAttribute("src", "assets/sounds/correct.mp3");
+  var incorrectSound = document.createElement("audio");
+  incorrectSound.setAttribute("src", "assets/sounds/wrong.mp3");
+  var winSound = document.createElement("audio");
+  winSound.setAttribute("src", "assets/sounds/win.mp3");
+  var loseSound = document.createElement("audio");
+  loseSound.setAttribute("src", "assets/sounds/loss.mp3");
 // FUNCTIONS
 // ==========================================================================
 // Starting Game By...    
@@ -101,6 +96,7 @@ function checkLetter(letter) {
   }
   // if letter is in word, display it in place of blanks ...
   if(letterInWord) {
+    correctSound.play()
     for (var j=0; j<wordLength; j++) {
       if (wordToGuess[j] == letter) {
         blanks[j] = letter;
@@ -110,6 +106,7 @@ function checkLetter(letter) {
   }
   // if letter is not in word, display it under already guessed
   else {
+    incorrectSound.play()
     lettersGuessed.push(letter);
       console.log('lettersGuessed:', lettersGuessed)
     remainingGuesses--;
@@ -127,11 +124,13 @@ function guessComplete() {
   // Check if user has completely guessed the word
   if (letters.toString() == blanks.toString()) {
     totalWins++;
+    winSound.play()
     alert("You Won! Click OK to play again.");
     winNum.innerHTML = totalWins;
     startGame();
   }
   else if (remainingGuesses == 0) {
+    loseSound.play()
     totalLosses++;
     alert("You lost. Click OK to try again!");
     lossNum.innerHTML = totalLosses;
