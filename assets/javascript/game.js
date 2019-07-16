@@ -106,10 +106,12 @@ function checkLetter(letter) {
   }
   // if letter is not in word, display it under already guessed
   else {
-    incorrectSound.play()
-    lettersGuessed.push(letter);
-      console.log('lettersGuessed:', lettersGuessed)
-    remainingGuesses--;
+    incorrectSound.play();
+    if (!lettersGuessed.includes(letter)){
+      lettersGuessed.push(letter);
+        console.log('lettersGuessed:', lettersGuessed);
+      remainingGuesses--;
+    }
   }
 }
 
