@@ -2,8 +2,6 @@ var $ = function (id) {
   return document.getElementById(id);
 }
 
-document.addEventListener("DOMContentLoaded", function(){
-// TODO Press a key to start the game
 // Variables that hold references to the places in the HTML where we want to display things
   var wordBlank = document.getElementById("currentWord");
   var guessesNum = document.getElementById("guessesRemain");
@@ -69,29 +67,48 @@ var setup = function(){
   wordBlank.textContent = output;
   output = "";
 }
-setup();
 
-// When player presses a key, go through selected word to see if letter is part of word
+// When player presses a key...  
 document.onkeypress = function (event) {
   output = "";
   userLetter = event.key;
     console.log('userLetter:', userLetter)
 
   event.key="";
-
+  // go through selected word to see if letter is part of word...
   for (var j=0; j<wordToGuess.length; j++) {
     if (userLetter.toLowerCase() === letters[j]) {
       display[j] = userLetter.toLowerCase();
       guessedCorrect --;
     }
+    // and fill in blank
     output = output + display[j] + " ";
   }
 
   wordBlank.textContent = output;
   output = "";
   remainingGuesses--;
+  // guessesNum.textContent = remainingGuesses;
+
+  if (guessedCorrect < 1) {
+    totalWins++;
+    winNum.textContent = totalWins;
+    console.log('totalWins:', totalWins);
+  }
+  else if (remainingGuesses < 1) {
+    totalLosses++;
+    lossNum.textContent = totalLosses
+    console.log('totalLosses:', totalLosses);
+  }
+  else {
+    guessesNum.textContent = remainingGuesses;
+  }
 }
-// Showing Wins/Losses/Remaining Guesses
+
+document.addEventListener("DOMContentLoaded", function(){
+  setup();
+
+// Show Wins/Losses/Remaining Guesses
 // Decrease Remaining Guesses
     // Show number of guessing remaining
       guessesNum.textContent = remainingGuesses;
@@ -103,12 +120,12 @@ document.onkeypress = function (event) {
   // TODO If word is correctly guessed, reset to new word and increase "wins" by one
   // Show number of wins
       winNum.textContent = totalWins;
+})
 
 
 
 
-
- /*
+/*
 // Show on screen blanks in place of word
 wordBlank.textContent = blanks.join(" ");
 
@@ -121,41 +138,6 @@ document.onkeypress = function(event) {
   var keyPress = event.key;
   var userGuess = keyPress.toLowerCase();
 
-  // TODO 
-  // var alpha = /^[A-Za-z]+$/;
-  // if (userGuess.match(alpha)) {
-
-  // Checks if userGuess is a letter and in the word to guess
-    for (var j = 0; j < wordToGuess.length; j++) {
-      if (wordToGuess[j] === userGuess) {
-        blanks[j] = userGuess;
-        console.log('blanks:', blanks)
-        wordBlank.textContent = blanks.join(" ");
-      } 
-     
-      else {
-        console.log("wrong guess, try again");
-        // Decrease guesses remaining 
-        remainingGuesses--;
-        console.log('remainingGuesses:', remainingGuesses)
-        // Add letter to lettersGuessed array
-        // lettersGuessed.push(" " + userGuess);
-        console.log('lettersGuessed:', lettersGuessed)
-        // Show letter under Already Guessed
-        // guessesText.textContent = lettersGuessed.join(" ");
-      }
-      */
-
-
-  
-  // } else {
-    // console.log("is not Alpha")
 
   // If letter isn't in word/phrase, show under "letters used" and decrease "guesses" remaining
-    
-    
-
-// Display letters already guessed, wins, and losses
-// Show # of guesses left
-// Change all to uppercase
-})
+*/
