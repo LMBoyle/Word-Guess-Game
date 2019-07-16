@@ -36,13 +36,13 @@
 
 // Sound variables
   var correctSound = document.createElement("audio");
-  correctSound.setAttribute("src", "assets/sounds/correct.mp3");
+  correctSound.setAttribute("src", "assets/Sounds/correct.mp3");
   var incorrectSound = document.createElement("audio");
-  incorrectSound.setAttribute("src", "assets/sounds/wrong.mp3");
+  incorrectSound.setAttribute("src", "assets/Sounds/wrong.mp3");
   var winSound = document.createElement("audio");
-  winSound.setAttribute("src", "assets/sounds/win.mp3");
+  winSound.setAttribute("src", "assets/Sounds/win.mp3");
   var loseSound = document.createElement("audio");
-  loseSound.setAttribute("src", "assets/sounds/loss.mp3");
+  loseSound.setAttribute("src", "assets/Sounds/loss.mp3");
 // FUNCTIONS
 // ==========================================================================
 // Starting Game By...    
