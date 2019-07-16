@@ -152,6 +152,3 @@ document.addEventListener("DOMContentLoaded", function(){
     guessComplete();
   }
 })
-
-// TODO After 8 wrong guesses, reset to new word and increase "losses" by one
-// TODO If word is correctly guessed, reset to new word and increase "wins" by one
