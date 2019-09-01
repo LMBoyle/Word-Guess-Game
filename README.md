@@ -13,4 +13,5 @@ Press letters on your keyboard to make a guess. Good luck!
 
 ## Links
 [Deployed Link](https://lmboyle.github.io/Word-Guess-Game)
+
 [Portfolio](https://lmboyle.github.io/)
