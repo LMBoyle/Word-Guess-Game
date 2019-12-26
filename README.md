@@ -1,13 +1,11 @@
-# Word Guess Game
-A simple, gym themed, word guess game.
+# [Word Guess Game](https://lmboyle.github.io/Word-Guess-Game)
+
+Front-End word guess game with a gym theme 
 
 ## Instructions
 Press letters on your keyboard to make a guess. Good luck!
 
-## What It Teaches
-Learning how to use Javascript, mainly looking at using key press events and how to display information on the screen.
-
-## Languages/Technologies 
+## Built With...
 * HTML
 * CSS
 * JavaScript
@@ -21,8 +19,4 @@ Learning how to use Javascript, mainly looking at using key press events and how
 - [ ] Change alert to modal
 - [ ] Add more words
 
-
-## Links
-[Deployed Link](https://lmboyle.github.io/Word-Guess-Game)
-
-[Portfolio](https://lmboyle.github.io/)
+&copy; 2019 [Luke Boyle](https://lmboyle.github.io/)
