@@ -1,4 +1,4 @@
-# [Word Guess Game](https://lmboyle.github.io/Word-Guess-Game)
+# [Word Guess Game](https://lmboyle.github.io/wordGuessGame)
 
 Front-End word guess game with a gym theme 
 
